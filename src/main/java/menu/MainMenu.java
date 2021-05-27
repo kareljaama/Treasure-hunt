@@ -2,15 +2,29 @@ package menu;
 
 import util.DBUtil;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class MainMenu {
+    private SubMenuCustomer subMenuCustomer;
+    private SubMenuEmployee subMenuEmployee;
+    private SubMenuMap subMenuMap;
+    private SubMenuPlace subMenuPlace;
+    private SubMenuTreasure subMenuTreasure;
 
     private Object SubMenuCustomer;
     private Object SubMenuMap;
     private Object SubMenuEmployee;
     private Object SubMenuPlace;
     private Object SubMenuTreasure;
+
+    public MainMenu() {
+        subMenuCustomer = new SubMenuCustomer();
+        subMenuEmployee = new SubMenuEmployee();
+        subMenuMap = new SubMenuMap();
+        subMenuPlace = new SubMenuPlace();
+        subMenuTreasure = new SubMenuTreasure();
+    }
 
     public int menuOptions(Scanner input) {
 
@@ -30,24 +44,24 @@ public class MainMenu {
 
         int userChoice;
 
-    //    do {
+        do {
             userChoice = menuOptions(input);
 
             switch (userChoice) {
                 case 1:
-                    subMenuCustomer(input);
+                    this.subMenuCustomer.menuChoice(input);
                     break;
                 case 2:
-                    subMenuMap(input);
+                    this.subMenuMap.menuChoice(input);
                     break;
                 case 3:
-                    subMenuEmployee(input);
+                    this.subMenuEmployee.menuChoice(input);
                     break;
                 case 4:
-                    subMenuPlace(input);
+                    this.subMenuPlace.menuChoice(input);
                     break;
                 case 5:
-                    subMenuTreasure(input);
+                    this.subMenuTreasure.menuChoice(input);
                     break;
                 case 6:
                     DBUtil.shutdown();
@@ -58,13 +72,13 @@ public class MainMenu {
                     menuChoice(input);
                     break;
             }
-      //  } while (userChoice != 6);
-     //  System.out.println("Closing system...");
-      //  System.out.println("Have a nice day!");
+        } while (userChoice != 6);
+        System.out.println("Closing system...");
+        System.out.println("Have a nice day!");
 
     }
 
-    public SubMenuCustomer subMenuCustomer(Scanner input) {
+  /*  public SubMenuCustomer subMenuCustomer(Scanner input) {
         return (SubMenuCustomer) SubMenuCustomer;
     }
 
@@ -83,4 +97,6 @@ public class MainMenu {
     public SubMenuTreasure subMenuTreasure(Scanner input) {
         return (SubMenuTreasure) SubMenuTreasure;
     }
+
+   */
 }

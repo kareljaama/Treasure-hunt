@@ -34,6 +34,7 @@ public class RepositoryTreasure {
                 .setParameter("newName", newName)
                 .setParameter("newValue", newValue)
                 .setParameter("newDescription", newDescription)
+                .setParameter("treasureId", treasureId)
                 .executeUpdate();
         if (result > 0) {
             System.out.println("Treasure updated successfully!");

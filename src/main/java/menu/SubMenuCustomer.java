@@ -3,6 +3,7 @@ package menu;
 import main.Main;
 import model.Customer;
 import persistence.RepositoryCustomer;
+import persistence.RepositoryCustomersMap;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class SubMenuCustomer {
 
     private RepositoryCustomer repositoryCustomer;
+    private RepositoryCustomersMap repositoryCustomersMap;
     private Object MainMenu;
 
     public SubMenuCustomer() {
@@ -24,7 +26,8 @@ public class SubMenuCustomer {
         System.out.println("3 - delete customer");
         System.out.println("4 - show customers information");
         System.out.println("5 - list all customers");
-        System.out.println("6 - back");
+//        System.out.println("6 - update customers and map list");
+        System.out.println("10 - back");
         System.out.print("\nOption: ");
 
         return input.nextInt();
@@ -53,7 +56,10 @@ public class SubMenuCustomer {
                 case 5:
                     listAllCustomers(input);
                     break;
-                case 6:
+//                case 6:
+//                    updateCustomersMap(input);
+//                    break;
+                case 10:
                     backToMainMenu(input);
                     break;
                 default:
@@ -61,7 +67,7 @@ public class SubMenuCustomer {
                     menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
+        } while (userChoice != 10);
     }
 
     private void saveCustomer(Scanner input) {
@@ -119,6 +125,12 @@ public class SubMenuCustomer {
             System.out.println(cust.toString());
         }
     }
+
+//    private void updateCustomersMap(Scanner input) {
+//        System.out.println("Insert customers ID: ");
+//        int id = input.nextInt();
+//        repositoryCustomersMap.updateCustomersMap(id, id, id);
+//    }
 
     // Does not work
     private void backToMainMenu(Scanner input) {
