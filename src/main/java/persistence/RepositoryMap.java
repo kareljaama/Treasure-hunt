@@ -25,6 +25,7 @@ public class RepositoryMap {
         }
     }
 
+    // Runs without errors, but does not delete from database
     public void deleteMapbyId(int mapId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Map m WHERE m.mapId = :id")

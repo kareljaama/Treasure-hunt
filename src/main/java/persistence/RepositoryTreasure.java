@@ -41,6 +41,7 @@ public class RepositoryTreasure {
         em.getTransaction().commit();
     }
 
+    // Runs without errors, but does not delete from database
     public void deleteTreasureById(int treasureId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Treasure t WHERE t.treasureId = :id")
@@ -52,7 +53,7 @@ public class RepositoryTreasure {
 
     public Treasure showTreasureInfo(int treasureId) {
         Treasure treasureInfo;
-        treasureInfo = em.createQuery("FROM Treasure t WHERE t.treasureID = :id", Treasure.class)
+        treasureInfo = em.createQuery("FROM Treasure t WHERE t.treasureId = :id", Treasure.class)
                 .setParameter("id", treasureId)
                 .getSingleResult();
         System.out.println(treasureInfo);
@@ -63,5 +64,11 @@ public class RepositoryTreasure {
         return em.createQuery("FROM Treasure t ORDER BY t.name asc",Treasure.class)
                 .getResultList();
 
+    }
+
+    public List<Treasure> listAllTreasuresByPlaceId(int placeId) {
+        return em.createQuery("FROM Treasure WHERE place_id = :id")
+                .setParameter("id", placeId)
+                .getResultList();
     }
 }

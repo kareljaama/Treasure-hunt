@@ -50,6 +50,7 @@ public class RepositoryEmployee {
         em.getTransaction().commit();
     }
 
+    // Runs without errors, but does not delete from database
     public void deleteEmployeeById(int employeeId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Employee e WHERE e.employeeId = :id")

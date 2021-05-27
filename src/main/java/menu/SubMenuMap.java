@@ -10,20 +10,21 @@ import java.util.Scanner;
 public class SubMenuMap {
 
     private RepositoryMap repositoryMap;
+    private Object MainMenu;
 
     public SubMenuMap() {
         this.repositoryMap = new RepositoryMap();
     }
 
     private int menuOptions(Scanner input) {
-        System.out.println("Select option");
+        System.out.println("\nSelect option");
         System.out.println("1 - Save map");
         System.out.println("2 - Delete map");
         System.out.println("3 - Update map");
         System.out.println("4 - Show map");
         System.out.println("5 - List all maps");
-        System.out.println("6 - quit");
-        System.out.print("Option: ");
+        System.out.println("6 - back");
+        System.out.print("\nOption: ");
 
         return input.nextInt();
     }
@@ -53,16 +54,14 @@ public class SubMenuMap {
                     listAllMaps(input);
                     break;
                 case 6:
-                    DBUtil.shutdown();
-                    input.close();
+                    backToMainMenu(input);
                     break;
                 default:
                     System.out.println("Invalid option, please try again!");
+                    menuChoice(input);
                     break;
             }
         } while (userChoice != 6);
-        System.out.println("Closing system...");
-        System.out.println("Have a nice day!");
     }
 
     private void saveMap(Scanner input) {
@@ -105,5 +104,9 @@ public class SubMenuMap {
         for (Map map : mapList) {
             System.out.println(map.toString());
         }
+    }
+    // Does not work
+    private void backToMainMenu(Scanner input) {
+        System.out.println(MainMenu);
     }
 }

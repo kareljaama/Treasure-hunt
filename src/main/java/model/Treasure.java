@@ -20,6 +20,10 @@ public class Treasure {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "place_id")
+    private Place place;
+
     public Treasure(String name, int value, String description) {
         this.name = name;
         this.value = value;
@@ -60,6 +64,14 @@ public class Treasure {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
     }
 
     @Override

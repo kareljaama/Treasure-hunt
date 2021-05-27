@@ -29,6 +29,10 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
+    @ManyToOne
+    @JoinColumn(name = "place_id")
+    private Place place;
+
     public Employee(String firstName, String lastName, String phoneNumber, String email, String dateOfBirth, int salary) {
         this.employeeId = employeeId;
         this.firstName = firstName;

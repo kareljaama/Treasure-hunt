@@ -10,20 +10,21 @@ import java.util.Scanner;
 public class SubMenuEmployee {
 
     private RepositoryEmployee repositoryEmployee;
+    private Object MainMenu;
 
     public SubMenuEmployee() {
         this.repositoryEmployee = new RepositoryEmployee();
     }
 
     private int menuOptions(Scanner input) {
-        System.out.println("Select option");
+        System.out.println("\nSelect option");
         System.out.println("1 - save employee");
         System.out.println("2 - update employee");
         System.out.println("3 - delete employee");
         System.out.println("4 - show employee information");
         System.out.println("5 - list all employees");
-        System.out.println("6 - quit");
-        System.out.print("Option: ");
+        System.out.println("6 - back");
+        System.out.print("\nOption: ");
 
         return input.nextInt();
     }
@@ -51,14 +52,15 @@ public class SubMenuEmployee {
                 case 5:
                     listAllEmployees(input);
                     break;
+                case 6:
+                    backToMainMenu(input);
+                    break;
                 default:
                     System.out.println("Invalid option, please try again!");
-                    menuOptions(input);
+                    menuChoice(input);
                     break;
             }
         } while (userChoice != 6);
-        System.out.println("Closing system...");
-        System.out.println("Have a nice day!");
     }
 
     private void saveEmployee(Scanner input) {
@@ -120,6 +122,11 @@ public class SubMenuEmployee {
         for (Employee emp : employeeList) {
             System.out.println(emp.toString());
         }
+    }
+
+    // Does not work
+    private void backToMainMenu(Scanner input) {
+        System.out.println(MainMenu);
     }
 }
 

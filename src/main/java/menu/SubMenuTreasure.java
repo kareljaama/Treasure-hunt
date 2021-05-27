@@ -1,9 +1,7 @@
 package menu;
 
-import model.Customer;
 import model.Treasure;
 import persistence.RepositoryTreasure;
-import util.DBUtil;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,20 +9,22 @@ import java.util.Scanner;
 public class SubMenuTreasure {
 
     private RepositoryTreasure repositoryTreasure;
+    private Object MainMenu;
 
     public SubMenuTreasure() {
         this.repositoryTreasure = new RepositoryTreasure();
     }
 
     private int menuOptions(Scanner input) {
-        System.out.println("Select option");
+        System.out.println("\nSelect option");
         System.out.println("1 - save treasure");
         System.out.println("2 - update treasure");
         System.out.println("3 - delete treasure");
         System.out.println("4 - show treasure information");
         System.out.println("5 - list all treasures");
-        System.out.println("6 - quit");
-        System.out.print("Option: ");
+        System.out.println("6 - list all treasures from place");
+        System.out.println("10 - back");
+        System.out.print("\nOption: ");
 
         return input.nextInt();
     }
@@ -53,17 +53,17 @@ public class SubMenuTreasure {
                     listAllTreasures(input);
                     break;
                 case 6:
-                    DBUtil.shutdown();
-                    input.close();
+                    listAllTreasuresByPlaceId(input);
+                    break;
+                case 10:
+                    backToMainMenu(input);
                     break;
                 default:
                     System.out.println("Invalid option, please try again!");
-                    menuOptions(input);
+                    menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
-        System.out.println("Closing system...");
-        System.out.println("Have a nice day!");
+        } while (userChoice != 10);
     }
 
     private void saveTreasure(Scanner input) {
@@ -108,6 +108,19 @@ public class SubMenuTreasure {
     private void listAllTreasures(Scanner input) {
         List<Treasure> treasureList = repositoryTreasure.listAllTreasures();
         for (Treasure treas : treasureList) {
+            System.out.println(treas.toString());
+        }
+    }
+    // Does not work
+    private void backToMainMenu(Scanner input) {
+        System.out.println(MainMenu);
+    }
+
+    private void listAllTreasuresByPlaceId(Scanner input) {
+        System.out.println("Insert place ID: ");
+        int id = input.nextInt();
+        List<Treasure> treasureList = repositoryTreasure.listAllTreasuresByPlaceId(id);
+        for (Treasure treas:treasureList) {
             System.out.println(treas.toString());
         }
     }

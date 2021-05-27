@@ -11,20 +11,21 @@ import java.util.Scanner;
 public class SubMenuPlace {
 
     private RepositoryPlace repositoryPlace;
+    private Object MainMenu;
 
     public SubMenuPlace() {
         this.repositoryPlace = new RepositoryPlace();
     }
 
     private int menuOptions(Scanner input) {
-        System.out.println("Select option");
+        System.out.println("\nSelect option");
         System.out.println("1 - save place");
         System.out.println("2 - update place");
         System.out.println("3 - delete place");
         System.out.println("4 - show place information");
         System.out.println("5 - list all places");
-        System.out.println("6 - quit");
-        System.out.print("Option: ");
+        System.out.println("6 - back");
+        System.out.print("\nOption: ");
 
         return input.nextInt();
     }
@@ -54,17 +55,14 @@ public class SubMenuPlace {
                     listAllPlaces(input);
                     break;
                 case 6:
-                    DBUtil.shutdown();
-                    input.close();
+                    backToMainMenu(input);
                     break;
                 default:
                     System.out.println("Invalid option, please try again!");
-                    menuOptions(input);
+                    menuChoice(input);
                     break;
             }
         } while (userChoice != 6);
-        System.out.println("Closing system...");
-        System.out.println("Have a nice day!");
     }
 
     private void savePlace(Scanner input) {
@@ -106,5 +104,9 @@ public class SubMenuPlace {
         for (Place place : placeList) {
             System.out.println(place.toString());
         }
+    }
+    // Does not work
+    private void backToMainMenu(Scanner input) {
+        System.out.println(MainMenu);
     }
 }

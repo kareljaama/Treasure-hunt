@@ -18,13 +18,16 @@ public class Place {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "map_id")
+    private Map map;
+
     public Place (String name, String description) {
         this.name = name;
         this.description = description;
     }
 
     public Place() {
-
     }
 
     public int getPlaceId() {
@@ -49,6 +52,14 @@ public class Place {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     @Override

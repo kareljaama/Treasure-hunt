@@ -21,7 +21,7 @@ public class MainMenu {
         System.out.println("4 - Place");
         System.out.println("5 - Treasure");
         System.out.println("6 - Quit");
-        System.out.print("Option: ");
+        System.out.print("\nOption: ");
 
         return input.nextInt();
     }
@@ -29,8 +29,8 @@ public class MainMenu {
     public void menuChoice(Scanner input) {
 
         int userChoice;
-        do {
 
+    //    do {
             userChoice = menuOptions(input);
 
             switch (userChoice) {
@@ -54,13 +54,14 @@ public class MainMenu {
                     input.close();
                     break;
                 default:
-                    System.out.println("Invalid option, please try again!");
-                    menuOptions(input);
+                    System.out.println("Invalid option, please try again!\n");
+                    menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
-        System.out.println("Closing system...");
-        System.out.println("Have a nice day!");
+      //  } while (userChoice != 6);
+     //  System.out.println("Closing system...");
+      //  System.out.println("Have a nice day!");
+
     }
 
     public SubMenuCustomer subMenuCustomer(Scanner input) {
