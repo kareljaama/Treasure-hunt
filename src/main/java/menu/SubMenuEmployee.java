@@ -1,5 +1,6 @@
 package menu;
 
+import main.Main;
 import model.Customer;
 import model.Employee;
 import persistence.RepositoryEmployee;
@@ -124,9 +125,8 @@ public class SubMenuEmployee {
         }
     }
 
-    // Does not work
     private void backToMainMenu(Scanner input) {
-        System.out.println(MainMenu);
+        Main.getMainMenu();
     }
 }
 

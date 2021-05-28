@@ -1,5 +1,6 @@
 package menu;
 
+import main.Main;
 import model.Treasure;
 import persistence.RepositoryTreasure;
 
@@ -111,9 +112,9 @@ public class SubMenuTreasure {
             System.out.println(treas.toString());
         }
     }
-    // Does not work
+
     private void backToMainMenu(Scanner input) {
-        System.out.println(MainMenu);
+        Main.getMainMenu();
     }
 
     private void listAllTreasuresByPlaceId(Scanner input) {

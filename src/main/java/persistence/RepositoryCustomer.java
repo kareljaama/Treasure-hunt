@@ -45,7 +45,7 @@ public class RepositoryCustomer {
         em.getTransaction().commit();
     }
 
-    // Runs without errors, but doesn't delete from database.
+    // Cannot delete or update a parent row: a foreign key constraint fails
     public void deleteCustomerById(int customerId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Customer c WHERE c.customerId = :id")

@@ -1,5 +1,6 @@
 package menu;
 
+import main.Main;
 import model.Map;
 import persistence.RepositoryMap;
 import util.DBUtil;
@@ -105,8 +106,8 @@ public class SubMenuMap {
             System.out.println(map.toString());
         }
     }
-    // Does not work
+
     private void backToMainMenu(Scanner input) {
-        System.out.println(MainMenu);
+        Main.getMainMenu();
     }
 }

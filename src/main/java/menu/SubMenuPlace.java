@@ -1,5 +1,6 @@
 package menu;
 
+import main.Main;
 import model.Customer;
 import model.Place;
 import persistence.RepositoryPlace;
@@ -105,8 +106,8 @@ public class SubMenuPlace {
             System.out.println(place.toString());
         }
     }
-    // Does not work
+
     private void backToMainMenu(Scanner input) {
-        System.out.println(MainMenu);
+        Main.getMainMenu();
     }
 }

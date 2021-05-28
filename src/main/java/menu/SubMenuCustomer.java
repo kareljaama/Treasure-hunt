@@ -2,6 +2,7 @@ package menu;
 
 import main.Main;
 import model.Customer;
+import model.CustomersMap;
 import persistence.RepositoryCustomer;
 import persistence.RepositoryCustomersMap;
 
@@ -17,6 +18,7 @@ public class SubMenuCustomer {
     public SubMenuCustomer() {
 
         this.repositoryCustomer = new RepositoryCustomer();
+      //  this.repositoryCustomersMap = new RepositoryCustomersMap();
     }
 
     private int menuOptions(Scanner input) {
@@ -27,6 +29,7 @@ public class SubMenuCustomer {
         System.out.println("4 - show customers information");
         System.out.println("5 - list all customers");
 //        System.out.println("6 - update customers and map list");
+        System.out.println("7 - list all customers who has map");
         System.out.println("10 - back");
         System.out.print("\nOption: ");
 
@@ -59,6 +62,9 @@ public class SubMenuCustomer {
 //                case 6:
 //                    updateCustomersMap(input);
 //                    break;
+                case 7:
+                    customersWhoHasMap(input);
+                    break;
                 case 10:
                     backToMainMenu(input);
                     break;
@@ -126,13 +132,28 @@ public class SubMenuCustomer {
         }
     }
 
+    private void customersWhoHasMap(Scanner input) {
+        List<CustomersMap> customersHasMapList = repositoryCustomersMap.customersWhoHasMap();
+        for (CustomersMap custMap : customersHasMapList) {
+            System.out.println(custMap);
+
+        }
+    }
+
 //    private void updateCustomersMap(Scanner input) {
 //        System.out.println("Insert customers ID: ");
 //        int id = input.nextInt();
 //        repositoryCustomersMap.updateCustomersMap(id, id, id);
 //    }
 
-    // Does not work
+//    private void giveCustomerAMap(Scanner input) {
+//        System.out.println("Insert customers Id: ");
+//        int customerId = input.nextInt();
+//        System.out.println("Insert map Id ");
+//        int mapId = input.nextInt();
+//
+//    }
+
     private void backToMainMenu(Scanner input) {
         Main.getMainMenu();
     }
