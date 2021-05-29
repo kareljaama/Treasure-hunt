@@ -87,10 +87,11 @@ public class CustomersMap {
 
     @Override
     public String toString() {
-        return "CustomersMap{" +
-                "customersMapId=" + customersMapId +
-                ", customer=" + customerId +
-                ", map=" + mapId +
-                '}';
+        return "CustomersMap: " +
+                "customersMapId = " + customersMapId +
+                ", customer = " + customerId +
+                ", map = " + mapId;
     }
+
+
 }

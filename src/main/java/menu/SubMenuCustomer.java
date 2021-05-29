@@ -18,7 +18,7 @@ public class SubMenuCustomer {
     public SubMenuCustomer() {
 
         this.repositoryCustomer = new RepositoryCustomer();
-      //  this.repositoryCustomersMap = new RepositoryCustomersMap();
+        this.repositoryCustomersMap = new RepositoryCustomersMap();
     }
 
     private int menuOptions(Scanner input) {
@@ -63,7 +63,7 @@ public class SubMenuCustomer {
 //                    updateCustomersMap(input);
 //                    break;
                 case 7:
-                    customersWhoHasMap(input);
+                    customersWhoHasMap();
                     break;
                 case 10:
                     backToMainMenu(input);
@@ -132,10 +132,10 @@ public class SubMenuCustomer {
         }
     }
 
-    private void customersWhoHasMap(Scanner input) {
-        List<CustomersMap> customersHasMapList = repositoryCustomersMap.customersWhoHasMap();
-        for (CustomersMap custMap : customersHasMapList) {
-            System.out.println(custMap);
+    private void customersWhoHasMap() {
+        List<Object[]> customersHasMapList = repositoryCustomersMap.customersWhoHasMap();
+        for (Object[] custMap : customersHasMapList) {
+            System.out.println(custMap[0] + " " + custMap[1] + " - " + custMap[2]);
 
         }
     }

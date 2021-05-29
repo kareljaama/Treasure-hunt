@@ -41,15 +41,13 @@ public class RepositoryCustomersMap {
         em.getTransaction().commit();
     }
 
-    // Exception thrown:
-    // Cannot create TypedQuery for query with more than one return using requested result type [model.CustomersMap]
-    public List<CustomersMap> customersWhoHasMap() {
+    // creat customized object?
+    // shows address to info
+    public List<Object[]> customersWhoHasMap() {
         return em.createQuery("select c.firstName, c.lastName, m.name from Customer as c " +
                 "right join CustomersMap as cm " +
                 "on c.customerId = cm.customerId left join Map as m " +
-                "on m.mapId = cm.mapId", CustomersMap.class)
+                "on m.mapId = cm.mapId")
                 .getResultList();
     }
-
-
 }
