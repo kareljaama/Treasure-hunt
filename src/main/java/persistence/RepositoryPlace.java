@@ -42,11 +42,11 @@ public class RepositoryPlace {
 
     }
 
-    // Runs without errors, but does not delete from database
     public void deletePlaceById(int placeId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Place p WHERE p.placeId = :id")
                 .setParameter("id", placeId).executeUpdate();
+        em.getTransaction().commit();
         if (result > 0) {
             System.out.println("Place was deleted successfully!");
         }

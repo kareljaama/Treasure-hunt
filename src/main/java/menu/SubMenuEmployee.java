@@ -24,7 +24,7 @@ public class SubMenuEmployee {
         System.out.println("3 - delete employee");
         System.out.println("4 - show employee information");
         System.out.println("5 - list all employees");
-        System.out.println("6 - back");
+        System.out.println("10 - back");
         System.out.print("\nOption: ");
 
         return input.nextInt();
@@ -53,7 +53,7 @@ public class SubMenuEmployee {
                 case 5:
                     listAllEmployees(input);
                     break;
-                case 6:
+                case 10:
                     backToMainMenu(input);
                     break;
                 default:
@@ -61,7 +61,7 @@ public class SubMenuEmployee {
                     menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
+        } while (userChoice != 10);
     }
 
     private void saveEmployee(Scanner input) {

@@ -24,7 +24,7 @@ public class SubMenuMap {
         System.out.println("3 - Update map");
         System.out.println("4 - Show map");
         System.out.println("5 - List all maps");
-        System.out.println("6 - back");
+        System.out.println("10 - back");
         System.out.print("\nOption: ");
 
         return input.nextInt();
@@ -54,7 +54,7 @@ public class SubMenuMap {
                 case 5:
                     listAllMaps(input);
                     break;
-                case 6:
+                case 10:
                     backToMainMenu(input);
                     break;
                 default:
@@ -62,18 +62,21 @@ public class SubMenuMap {
                     menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
+        } while (userChoice != 10);
     }
 
     private void saveMap(Scanner input) {
         System.out.println("Insert maps name: ");
         String name = input.next();
-        System.out.println("Draw a map: ");
-        String description = input.next();
+        System.out.println("Insert maps description: ");
+        String description = input.nextLine();
+        System.out.println("Upload a map: ");
+        String imageAddress = input.next();
 
         Map map = new Map();
         map.setDescription(description);
         map.setName(name);
+        map.setImageAddress(imageAddress);
         repositoryMap.saveMap(map);
     }
 

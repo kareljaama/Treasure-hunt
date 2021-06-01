@@ -8,7 +8,8 @@ public class Main {
     private static MainMenu mainMenu;
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        // for saving sentences with space
+        Scanner input = new Scanner(System.in).useDelimiter("\\n");
 
 
         MainMenu mainMenu = new MainMenu();

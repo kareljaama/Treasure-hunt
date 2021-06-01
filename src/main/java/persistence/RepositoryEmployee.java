@@ -55,6 +55,7 @@ public class RepositoryEmployee {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Employee e WHERE e.employeeId = :id")
                 .setParameter("id", employeeId).executeUpdate();
+        em.getTransaction().commit();
         if (result > 0) {
             System.out.println("Employee was deleted successfully!");
         }

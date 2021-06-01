@@ -25,7 +25,7 @@ public class SubMenuPlace {
         System.out.println("3 - delete place");
         System.out.println("4 - show place information");
         System.out.println("5 - list all places");
-        System.out.println("6 - back");
+        System.out.println("10 - back");
         System.out.print("\nOption: ");
 
         return input.nextInt();
@@ -55,7 +55,7 @@ public class SubMenuPlace {
                 case 5:
                     listAllPlaces(input);
                     break;
-                case 6:
+                case 10:
                     backToMainMenu(input);
                     break;
                 default:
@@ -63,7 +63,7 @@ public class SubMenuPlace {
                     menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
+        } while (userChoice != 10);
     }
 
     private void savePlace(Scanner input) {

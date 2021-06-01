@@ -42,11 +42,11 @@ public class RepositoryTreasure {
         em.getTransaction().commit();
     }
 
-    // Runs without errors, but does not delete from database
     public void deleteTreasureById(int treasureId) {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Treasure t WHERE t.treasureId = :id")
                 .setParameter("id", treasureId).executeUpdate();
+        em.getTransaction().commit();
         if (result > 0) {
             System.out.println("Treasure was deleted successfully!");
         }

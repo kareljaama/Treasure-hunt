@@ -18,6 +18,17 @@ public class Map {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "image_address")
+    private String imageAddress;
+
+    public String getImageAddress() {
+        return imageAddress;
+    }
+
+    public void setImageAddress(String imageAddress) {
+        this.imageAddress = imageAddress;
+    }
+
     public int getMapId() {
         return mapId;
     }

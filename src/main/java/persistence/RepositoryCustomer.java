@@ -50,6 +50,7 @@ public class RepositoryCustomer {
         em.getTransaction().begin();
         int result = em.createQuery("DELETE FROM Customer c WHERE c.customerId = :id")
                 .setParameter("id", customerId).executeUpdate();
+        em.getTransaction().commit();
         if (result > 0) {
             System.out.println("Customer was deleted successfully!");
         }

@@ -28,13 +28,13 @@ public class MainMenu {
 
     public int menuOptions(Scanner input) {
 
-        System.out.println("Select table");
+        System.out.println("\nSelect table");
         System.out.println("1 - Customer");
         System.out.println("2 - Map");
         System.out.println("3 - Employee");
         System.out.println("4 - Place");
         System.out.println("5 - Treasure");
-        System.out.println("6 - Quit");
+        System.out.println("10 - Quit");
         System.out.print("\nOption: ");
 
         return input.nextInt();
@@ -63,7 +63,7 @@ public class MainMenu {
                 case 5:
                     this.subMenuTreasure.menuChoice(input);
                     break;
-                case 6:
+                case 10:
                     DBUtil.shutdown();
                     input.close();
                     break;
@@ -72,7 +72,7 @@ public class MainMenu {
                     menuChoice(input);
                     break;
             }
-        } while (userChoice != 6);
+        } while (userChoice != 10);
         System.out.println("Closing system...");
         System.out.println("Have a nice day!");
 

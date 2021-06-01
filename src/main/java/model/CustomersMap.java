@@ -15,18 +15,9 @@ public class CustomersMap {
     @JoinColumn(name = "customer_id")
     private Customer customerId;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String  lastName;
-
     @ManyToOne
     @JoinColumn(name = "map_id")
     private Map mapId;
-
-    @Column(name = "map_name")
-    private String mapName;
 
     public CustomersMap(Customer customerId, Map mapId) {
         this.customerId = customerId;
@@ -61,29 +52,6 @@ public class CustomersMap {
         this.mapId = mapId;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMapName() {
-        return mapName;
-    }
-
-    public void setMapName(String mapName) {
-        this.mapName = mapName;
-    }
 
     @Override
     public String toString() {
