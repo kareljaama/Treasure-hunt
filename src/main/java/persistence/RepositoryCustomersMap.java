@@ -17,23 +17,15 @@ public class RepositoryCustomersMap {
         this.em = DBUtil.getEntityManager();
     }
 
-//    public void giveCustomerAMap(CustomersMap customersMap) {
-//        try {
-//            em.getTransaction().begin();
-//            em.persist(customersMap);
-//            em.getTransaction().commit();
-//        } catch (Exception e) {
-//            em.getTransaction().rollback();
-//        }
-//    }
+  //  Parameter value ([1] - inserted value from keyboard) did not match expected type
 
-//    public void updateCustomersMap(int customersMapId, int newCustomerId, int newMapId) {
+//    public void updateCustomersWhoHasMap(int customersMapId, int newCustomerId, int newMapId) {
 //        em.getTransaction().begin();
-//        int result = em.createQuery("UPDATE customers_map SET customer_id = :newCustomerId, map_id = :newMapId"
-//                + " WHERE customers_map_id = :id")
+//        int result = em.createQuery("UPDATE CustomersMap SET customerId = :newCustomerId, mapId = :newMapId"
+//                + " WHERE customersMapId = :id")
 //                .setParameter("newCustomerId", newCustomerId)
 //                .setParameter("newMapId", newMapId)
-//                .setParameter("customersMapId", customersMapId)
+//                .setParameter("id", customersMapId)
 //                .executeUpdate();
 //        if (result > 0) {
 //            System.out.println("Update was successful!");

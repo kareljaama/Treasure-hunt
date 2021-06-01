@@ -57,7 +57,6 @@ public class RepositoryTreasure {
         treasureInfo = em.createQuery("FROM Treasure t WHERE t.treasureId = :id", Treasure.class)
                 .setParameter("id", treasureId)
                 .getSingleResult();
-        System.out.println(treasureInfo);
         return treasureInfo;
     }
 

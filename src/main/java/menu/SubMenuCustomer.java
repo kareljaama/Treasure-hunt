@@ -28,7 +28,7 @@ public class SubMenuCustomer {
         System.out.println("3 - delete customer");
         System.out.println("4 - show customers information");
         System.out.println("5 - list all customers");
-//        System.out.println("6 - update customers and map list");
+        System.out.println("6 - give customer a map");
         System.out.println("7 - list all customers who has map");
         System.out.println("10 - back");
         System.out.print("\nOption: ");
@@ -60,7 +60,7 @@ public class SubMenuCustomer {
                     listAllCustomers(input);
                     break;
 //                case 6:
-//                    updateCustomersMap(input);
+//                    updateCustomersWhoHasMap(input);
 //                    break;
                 case 7:
                     customersWhoHasMap();
@@ -140,10 +140,12 @@ public class SubMenuCustomer {
         }
     }
 
-//    private void updateCustomersMap(Scanner input) {
-//        System.out.println("Insert customers ID: ");
+    //  Parameter value ([1] - inserted value from keyboard) did not match expected type
+
+//    private void updateCustomersWhoHasMap(Scanner input) {
+//        System.out.println("Insert relationship ID you would like to change: ");
 //        int id = input.nextInt();
-//        repositoryCustomersMap.updateCustomersMap(id, id, id);
+//        repositoryCustomersMap.updateCustomersWhoHasMap(id, id, id);
 //    }
 
 //    private void giveCustomerAMap(Scanner input) {

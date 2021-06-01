@@ -69,7 +69,7 @@ public class SubMenuMap {
         System.out.println("Insert maps name: ");
         String name = input.next();
         System.out.println("Insert maps description: ");
-        String description = input.nextLine();
+        String description = input.next();
         System.out.println("Upload a map: ");
         String imageAddress = input.next();
 

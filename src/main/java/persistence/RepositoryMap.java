@@ -55,7 +55,6 @@ public class RepositoryMap {
         mapInfo = em.createQuery("FROM Map m WHERE m.mapId = :id", Map.class)
                 .setParameter("id", mapId)
                 .getSingleResult();
-        System.out.println(mapInfo);
         return mapInfo;
     }
 

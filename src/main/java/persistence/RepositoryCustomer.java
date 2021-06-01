@@ -61,7 +61,6 @@ public class RepositoryCustomer {
         customerInfo = em.createQuery("FROM Customer c WHERE c.customerId = :id", Customer.class)
                 .setParameter("id", customerId)
                 .getSingleResult();
-        System.out.println(customerInfo);
         return customerInfo;
     }
 

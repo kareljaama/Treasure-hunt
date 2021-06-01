@@ -57,7 +57,6 @@ public class RepositoryPlace {
         placeInfo = em.createQuery("FROM Place p WHERE p.placeId = :id", Place.class)
                 .setParameter("id", placeId)
                 .getSingleResult();
-        System.out.println(placeInfo);
         return placeInfo;
 
     }
